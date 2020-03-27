@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suporte 77seg</title>
+
+    <!-- RESET CSS -->
+    <link rel="stylesheet" href="/login/style/reset.css">
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/vendor/bootstrap/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="/login/style/style.css">
+</head>
+
+<body>
+    <form class="form-signin shadow" action="/login" method="POST">
+        <img class="mb-4" src="/login/image/77seg.png" alt="logo" width="190" height="70">
+        <h1 class="h3 mb-3 font-weight-normal">Suporte</h1>
+        <!-- <label for="user" class="sr-only">Usuário</label> -->
+        <input name="login" type="text" id="user" class="form-control" placeholder="Usuário" required="" autofocus="">
+        <!-- <label for="pass" class="sr-only">Senha</label> -->
+        <input name="senha" type="password" id="pass" class="form-control" placeholder="Senha" required="">
+        <div id="forgot-pass">
+            <a href="http://senha.77seg.com.br/">Esqueci minha senha</a>
+        </div>
+        <button id="btn-avancar" class="btn btn-lg btn-primary btn-block" type="submit">Avançar</button>
+        <!-- <p class="mt-5 mb-3 text-muted">© 2017-2018</p> -->
+    </form>
+</body>
+</html>

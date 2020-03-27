@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suporte 77seg</title>
+
+    <!-- JQUERY -->
+    <script src="/vendor/jquery/jquery-3.4.1.min.js"></script>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="/vendor/bootstrap/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- RESET CSS -->
+    <link rel="stylesheet" href="/chamados/style/reset.css">
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="/vendor/bootstrap/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="/chamados/style/index.css">
+
+    <!-- CUSTOM JS -->
+    <script src="/chamados/script/editar.js"></script>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <nav class="navbar navbar-light navbar-expand-md py-md-2 shadow-sm">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item py-md-2"><a href="#sobre_nos" class="nav-link">Sobre nós</a></li>
+                    <li class="nav-item py-md-2"><a href="#o_que_fazemos" class="nav-link">O que fazemos</a></li>
+                    <li class="nav-item py-md-2"><a href="#parceiros" class="nav-link">Parceiros</a></li>
+                    <li class="nav-item py-md-2"><a href="#newsletter" class="nav-link">Newsletter</a></li>
+                    <li class="nav-item py-md-2"><a href="#midia" class="nav-link">77SEG na Mídia</a></li>
+                    <li class="nav-item py-md-2"><a href="#contato" class="nav-link">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main role="main" class="container">
+        <!-- TITLE -->
+        <div id="title" class="d-flex align-items-center p-3 my-3 bg-white rounded shadow-sm">
+            <div class="lh-100">
+                <h2>Suporte</h2>
+            </div>
+        </div>
+
+        <!-- CONSULTA CHAMADOS -->
+        <div id="all-tickets" class="my-3 p-3 bg-white rounded shadow-sm">
+            <h5 class="border-bottom border-gray pb-2 mb-0">Consultar Chamados</h5>
+            <div id="all-tickets-content">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Código</th>
+                            <th scope="col">Título</th>
+                            <th scope="col">Data de Abertura</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Data de Encerramento</th>
+                            <th scope="col">Tipo</th>
+                            <th scope="col">Criticidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let i = 0; i < chamados.length; i++){ %>
+                        <tr>
+                            <th scope="row"><%= chamados[i].codigo %></th>
+                            <td><%= chamados[i].titulo %></td>
+                            <td><%= chamados[i].data_abertura %></td>
+                            <td><%= chamados[i].status %></td>
+                            <td><%= chamados[i].data_encerramento %></td>
+                            <td><%= chamados[i].tipo %></td>
+                            <td><%= chamados[i].criticidade %></td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- ABERTURA DE CHAMADOS -->
+        <form action="/chamados/novo" method="POST">
+            <div id="new-ticket" class="my-3 p-3 bg-white rounded shadow-sm">
+                <h5 class="border-bottom border-gray pb-2 mb-0">Abertuda de Chamados</h5>
+                <div class="row mt-3 mb-3">
+                    <div class="col">
+                        <label for="titulo">Título</label>
+                        <input type="text" name="titulo" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="titulo">Módulo</label>
+                        <input type="text" name="modulo" class="form-control">
+                    </div>
+                    <div class="col">
+                        <label for="tipo">Tipo</label>
+                        <select name="tipo" class="form-control d-block" id="tipo">
+                            <option value="">Escolher...</option>
+                            <!-- VERIFICAR DUVIDA OU PROBLEMA -->
+                            <option value="Duvida">Dúvida</option>
+                            <option value="Problema">Problema</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col form-group">
+                        <label for="descricao">Descrição</label>
+                        <textarea name="descricao" class="form-control" id="descricao" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label for="criticidade">Criticidade</label>
+                        <select name="criticidade" class="form-control" id="criticidade">
+                            <option value="">Escolher...</option>
+                            <!-- VERIFICAR CRITICIDADE -->
+                            <option value="Baixo">Baixo</option>
+                            <option value="Medio">Médio</option>
+                            <option value="Critico">Crítico</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="evidencia">Upload de uma Evidência</label>
+                            <input type="file" class="form-control-file" id="evidencia">
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row-reverse">
+                    <!-- ALTERAR CORES ** TO DO ** -->
+                    <button value="submit" type="submit" id="btn-prosseguir" class="btn btn-primary">Prosseguir</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- MODAL -->
+        <div class="modal fade" id="modal-editar-chamados" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+body{
+  background-color: #F5F5F5;
+}
+
+.form-signin{
+  color: rgb(73, 73, 73);
+  background-color: white;
+  text-align: center;
+  width: 100%;
+  max-width: 360px;
+  padding: 40px;
+  margin: 0 auto;
+  margin-top: 10%;
+  border-radius: 5px;
+}
+
+/* TEXT BOX */
+.form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#user{
+  margin-bottom: -1px;
+  border-radius: 5px 5px 0 0;
+}
+
+#pass{
+  border-radius: 0 0 5px 5px;
+}
+
+.form-control:focus{
+  z-index: 999;
+}
+
+/* BUTTON */
+#btn-avancar{    
+  color: rgba(0, 0, 0, 0.692);
+  background-image: linear-gradient(to right, #ad771f, #f5e27b, #ad771f);
+  border-color: rgb(197, 162, 57);
+}
+
+#btn-avancar:hover{
+  background-color: linear-gradient(to right, #ad771f, #d4bd37, #ad771f);
+  border-color: rgb(156, 125, 33);
+}
+
+.btn{
+  margin-top: 20px;
+}
+
+/* LINK ESQUECI MINHA SENHA */
+#forgot-pass > a{
+  padding: 10px;
+}
+
+#forgot-pass{
+  margin-top: 10px;
+}
+

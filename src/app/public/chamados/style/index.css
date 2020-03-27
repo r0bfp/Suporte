@@ -1,0 +1,19 @@
+body{
+    background-color: #F8F9FA;
+}
+
+/* NAVBAR */
+.navbar{
+    background-image: linear-gradient(to right, #ad771f, #f5e27b, #ad771f);
+}
+
+/* CONSULTA CHAMADOS */
+tr{
+    cursor: pointer;
+}
+
+/*  ABERTURA DE CHAMADOS */
+#all-tickets-content{
+    max-height: 270px;
+    overflow: auto;
+}
